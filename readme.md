@@ -1,19 +1,21 @@
-# Service Mesh for Configuration Managemen
+# Service Mesh for Configuration Management
 This work presents the setup of a local environment using Minikube to establish a Kubernetes cluster and the installation of Istio as a Service Mesh. It details the environment, including the installation of kubectl and Istio, with an emphasis on installation profiles. It explores the implementation of the BookInfo application, from namespace labeling to ingress configuration, highlighting the functioning of the Service Mesh in communication between services. Additionally, it illustrates the use of Istio's traffic shifting for controlled migration of microservices versions. This practical discussion of the configuration is relevant for real-world scenarios and integrates a debate on network configuration management.
 
+## Demonstration
+[Demonstração Service Mesh](https://youtu.be/Qev_sj1JK2A)
 ## Requirements
 * You need to have Docker or VirtualBox or some other VM manager installed. Docker, QEMU, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, or VMware Fusion/Workstation.
 * kubectl
 * Minikube
 
 # Instructions
-
+## Starting minikube
 ```
 $ minikube start --driver=docker --cpus 6 --memory 3795
 $ istioctl install --set profile=demo
 ```
 
-## Book Info
+## Starting the application: Bookinfo
 
 ```
 $ minikube kubectl label namespace default istio-injection=enabled
@@ -39,7 +41,7 @@ $ export SECURE_INGRESS_PORT=$(kubectl -n "$INGRESS_NS" get service "$INGRESS_NA
 $ export TCP_INGRESS_PORT=$(kubectl -n "$INGRESS_NS" get service "$INGRESS_NAME" -o jsonpath='{.spec.ports[?(@.name=="tcp")].port}')
 ```
 
-## Book Info
+## Applying rules to Bookinfo network
 
 ```
 $ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
