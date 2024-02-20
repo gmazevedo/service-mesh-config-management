@@ -3,6 +3,8 @@ This work presents the setup of a local environment using Minikube to establish 
 
 ## Demonstration
 [Demonstração Service Mesh](https://youtu.be/Qev_sj1JK2A)
+[Aprendizado de Máquina em Service Mesh para Gerenciamento de Configuração](https://www.youtube.com/watch?v=jh-m0Gh2HAI)
+
 ## Requirements
 * You need to have Docker or VirtualBox or some other VM manager installed. Docker, QEMU, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, or VMware Fusion/Workstation.
 * kubectl
